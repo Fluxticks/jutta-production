@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  position: relative;
+  width: var(--image-size);
+  height: var(--image-size);
+  justify-content: center;
+  align-items: center;
+}
+
+.container:hover {
+  border-color: transparent;
+}
+
+.image {
+  border-radius: 10px;
+  width: 95%;
+  height: 95%;
+  transition: border-radius 0.1s ease-out, width 0.1s ease-out,
+    height 0.1s ease-out;
+}
+
+.container:hover .image {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}

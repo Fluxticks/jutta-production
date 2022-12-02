@@ -1,0 +1,3 @@
+.content_container {
+  @apply flex w-[85%] justify-center mx-auto;
+}

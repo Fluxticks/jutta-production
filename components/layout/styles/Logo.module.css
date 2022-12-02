@@ -1,0 +1,22 @@
+.container {
+  width: fit-content;
+  @apply flex gap-5 items-center justify-center py-5 px-0 mx-auto;
+}
+
+.logo_background {
+  border-radius: 100000px;
+  translate: -60% 35%;
+  z-index: 1;
+  @apply absolute flex justify-center items-center w-32 h-32 overflow-hidden bg-custom-blue;
+}
+
+.logo {
+  mask: url("../../../public/logo.svg") center no-repeat;
+  @apply w-[80%] h-[80%] bg-custom-cream;
+}
+
+.page_name {
+  letter-spacing: 0.1rem;
+  translate: 60% 10%;
+  @apply text-5xl font-caveat font-semibold;
+}

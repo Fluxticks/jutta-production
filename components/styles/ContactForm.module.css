@@ -1,0 +1,86 @@
+.container {
+  @apply flex flex-col justify-center items-center gap-5 w-full pb-10;
+}
+
+.contact_container {
+  grid-template-columns: 1fr 1fr;
+  @apply grid;
+}
+
+.left {
+  border-right: 1px solid;
+  @apply border-custom-blue flex flex-col pr-5 gap-5 py-5 ml-auto w-fit;
+}
+
+.right {
+  border-left: 1px solid;
+  @apply border-custom-blue flex flex-col pl-5 py-5 mr-auto w-fit;
+}
+
+.input_item {
+  @apply flex flex-row gap-5 justify-between;
+}
+
+.input_item > input,
+.input_item > textarea {
+  border: 2px solid;
+  @apply text-custom-ash bg-custom-cream border-custom-blue pl-2 w-96 py-1;
+}
+
+.input_item > input {
+  @apply rounded-full;
+}
+
+.input_item > textarea {
+  border-radius: 10px;
+  @apply min-h-[200px];
+}
+
+.input_item > input:focus,
+.input_item > textarea:focus {
+  outline: none;
+  @apply border-custom-coral;
+}
+
+.contact_items {
+  @apply flex flex-col my-auto gap-5;
+}
+
+.contact_description {
+  @apply w-[60%];
+}
+
+.contact_info {
+  @apply flex flex-row gap-3 h-fit;
+}
+
+.contact_info > h1 {
+  @apply font-semibold;
+}
+
+.button_placement {
+  @apply flex justify-center;
+}
+
+.button_area {
+  @apply text-sm w-44 cursor-pointer;
+}
+
+.progress {
+  @apply cursor-progress;
+}
+
+.header {
+  @apply relative text-3xl font-semibold text-custom-blue;
+}
+
+.header::after {
+  content: "";
+  display: block;
+  bottom: 0;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  height: 2px;
+  @apply bg-custom-coral rounded-full;
+}

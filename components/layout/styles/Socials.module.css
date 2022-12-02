@@ -1,0 +1,19 @@
+.container {
+  width: fit-content;
+  translate: 0 10%;
+  @apply flex gap-5 items-center justify-center py-5 px-0 mx-auto;
+}
+
+.prefix {
+  @apply text-xl text-custom-grey;
+}
+
+.list {
+  text-decoration: none;
+  list-style: none;
+  @apply flex gap-4 items-center justify-center py-5 px-0 mx-auto;
+}
+
+.nav_item {
+  @apply text-custom-grey;
+}

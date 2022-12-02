@@ -1,0 +1,27 @@
+.container {
+  text-decoration: none;
+  list-style: none;
+  width: fit-content;
+  translate: 0 10%;
+  @apply flex gap-5 items-center justify-center py-5 px-0 mx-auto text-xl;
+}
+
+.nav_item {
+  @apply text-custom-ash;
+}
+
+.active_child {
+  @apply text-custom-grey;
+}
+
+.active_highlight {
+  display: none;
+  position: absolute;
+  height: 2px;
+  border-radius: 1000px;
+  left: 100%;
+  top: 100%;
+  transition: left 0.2s ease-in-out, top 0.2s ease-in-out,
+    width 0.2s ease-in-out;
+  @apply bg-custom-coral text-custom-coral;
+}

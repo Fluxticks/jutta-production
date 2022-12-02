@@ -1,0 +1,35 @@
+.container {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 10000;
+  @apply fixed flex flex-col items-center justify-center;
+}
+
+.background {
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  z-index: -1;
+  @apply absolute w-full h-full bg-custom-ash;
+}
+
+.box_area {
+  border-radius: 10px;
+  @apply bg-custom-cream flex flex-col gap-2 px-10 py-2;
+}
+
+.title {
+  @apply font-semibold text-3xl;
+}
+
+.message {
+  @apply pb-5;
+}
+
+.box_area > a {
+  @apply cursor-pointer;
+}

@@ -1,0 +1,7 @@
+.container {
+  @apply flex flex-col py-10;
+}
+
+.button {
+  @apply flex justify-center;
+}

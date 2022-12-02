@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  @apply font-barlow font-normal text-lg;
+}
+
+body,
+html {
+  @apply bg-custom-cream text-custom-grey;
+}

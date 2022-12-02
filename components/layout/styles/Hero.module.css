@@ -1,0 +1,28 @@
+.container {
+  background-image: var(--bg-url), url("https://via.placeholder.com/1920");
+  background-position-x: 30%;
+  background-position-y: -5%;
+  background-size: cover;
+  width: 100%;
+  height: 550px;
+  z-index: 0;
+  @apply flex flex-col relative py-5 px-0 bg-no-repeat justify-center items-center gap-5;
+}
+
+.container::before {
+  content: "";
+  opacity: 60%;
+  z-index: -1;
+  @apply absolute top-0 left-0 w-full h-full bg-custom-cream;
+}
+
+.title_text {
+  z-index: 1;
+  @apply text-7xl text-custom-blue font-semibold font-caveat;
+}
+
+.sub_text {
+  z-index: 1;
+  max-width: clamp(10vw, 1.5rem + 30vm, 80vw);
+  @apply text-4xl text-center font-barlow;
+}

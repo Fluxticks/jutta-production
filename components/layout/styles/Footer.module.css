@@ -1,0 +1,30 @@
+.container {
+  @apply relative h-40 w-full bg-custom-powder text-custom-cream;
+}
+
+.footer_content {
+  @apply absolute flex flex-row justify-between px-24 h-fit top-0 bottom-0 my-auto left-0 right-0 mx-auto;
+}
+
+.tag_line {
+  letter-spacing: 0.3rem;
+  @apply font-caveat text-5xl;
+}
+
+.logo {
+  mask: url("../../../public/logo.svg") no-repeat center;
+  @apply w-16 h-16 bg-custom-cream;
+}
+
+.advert {
+  @apply absolute flex bottom-4 w-fit left-0 right-0 mx-auto;
+}
+
+.advert > p {
+  @apply mx-2;
+}
+
+.advert > a {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}

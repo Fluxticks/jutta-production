@@ -1,0 +1,138 @@
+.container {
+  @apply flex flex-col;
+}
+
+.artform_section {
+  @apply flex flex-col;
+}
+
+.artform_images {
+  @apply flex flex-row gap-10 justify-center relative;
+}
+
+.artform_container {
+  @apply flex flex-col items-center cursor-pointer;
+}
+
+.artform_container > h2 {
+  @apply text-4xl font-bold text-custom-blue;
+}
+
+.artform_container > h4 {
+  @apply text-2xl text-custom-grey pb-1;
+}
+
+.artform_active_text {
+  position: relative;
+}
+
+.artform_active_text::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: -2px auto;
+  @apply bg-custom-coral rounded-full;
+}
+
+.artform_image {
+  transition: border 0.1s ease-in, border-radius 0.5s ease-in;
+  @apply relative;
+}
+
+.artform_image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in;
+  @apply bg-custom-cream;
+}
+
+.artform_active {
+  border-radius: 5px;
+  transition: border-radius 0.1s ease-in;
+}
+
+.artform_active::before {
+  opacity: 0;
+}
+
+.artform_image:hover {
+  border-color: transparent;
+}
+
+.artform_active:hover {
+  border-radius: 10px;
+}
+
+.artform_image:hover::before {
+  opacity: 0;
+}
+
+.artform_info {
+  @apply flex flex-col gap-5 py-5 w-[75%] mx-auto;
+}
+
+.artform_info_title {
+  @apply relative w-fit text-3xl;
+}
+
+.artform_info_title::after {
+  content: "";
+  border: 1px solid;
+  display: block;
+  @apply relative bottom-0 left-0 w-[80%] h-[2px] rounded-full text-custom-coral;
+}
+
+.artform_info_description {
+  @apply text-xl min-h-[10rem];
+}
+
+.nav_container {
+  text-decoration: none;
+  list-style: none;
+  width: fit-content;
+  @apply flex gap-5 mx-auto justify-center items-center;
+}
+
+.nav_item {
+  @apply relative cursor-pointer text-xl;
+}
+
+.nav_item::before {
+  content: "";
+  @apply absolute block top-0 left-[-2.5%] w-[110%] h-[125%];
+}
+.nav_active_item {
+  @apply relative;
+}
+
+.nav_highlight {
+  display: none;
+  position: absolute;
+  height: 2px;
+  border-radius: 1000px;
+  left: 100%;
+  top: 100%;
+  transition: left 0.2s ease-in-out, top 0.2s ease-in-out,
+    width 0.2s ease-in-out;
+  @apply bg-custom-coral text-custom-coral;
+}
+
+.image_grid {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  @apply grid gap-10 my-10 mx-auto;
+}
+
+.empty_list {
+  @apply text-center my-10 text-xl font-semibold;
+}
