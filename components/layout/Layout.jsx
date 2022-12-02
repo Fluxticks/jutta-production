@@ -63,13 +63,13 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>Jutta Zilha&apos;s kleine Manufaktur</title>
+        <title>Jutta Zihla&apos;s kleine Manufaktur</title>
         <meta
           name="description"
-          content="Jutta Zilha's kleine Manufaktur für Porzellan, Raku, Ton & Keramik"
+          content="Jutta Zihla's kleine Manufaktur für Porzellan, Raku, Ton & Keramik"
         />
         <meta name="robots" content="all" />
-        <meta property="og:title" content="Jutta Zilha's kleine Manufaktur" />
+        <meta property="og:title" content="Jutta Zihla's kleine Manufaktur" />
         <meta property="og:image" content="/logo.svg" />
         <meta property="og:type" content="website" />
         <link rel="icon" href="/logo.svg" />
