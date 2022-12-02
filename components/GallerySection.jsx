@@ -127,10 +127,6 @@ const ImageGallery = ({ items, filterBy, artForms }) => {
   const [previewIndex, setPreviewIndex] = useState(0);
 
   if (items === undefined || items.length === 0) {
-    console.log(
-      "🚀 ~ file: GallerySection.jsx:131 ~ ImageGallery ~ process.env.ENABLE_DEBUG_IMAGES",
-      process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES
-    );
     if (process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES) {
       items = Array.from(Array(12), () => ({
         name: undefined,
