@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import { updateBarPosition } from "../../lib/common";
 import style from "./styles/Nav.module.css";
 
 const NavItem = ({ isActive, setActive, index, children }) => {
@@ -27,24 +28,7 @@ const Nav = ({ children }) => {
   const barRef = useRef(null);
 
   const updateBar = () => {
-    const activeChildren = document.getElementsByClassName(
-      `${style.nav_item} ${style.active_child}`
-    );
-
-    if (!activeChildren.length) {
-      return;
-    } else {
-      var activeChild = activeChildren[0];
-    }
-
-    const itemBounds = activeChild.getBoundingClientRect();
-    const newStyle = {
-      display: "block",
-      left: `${itemBounds.left}px`,
-      top: `${itemBounds.top + itemBounds.height}px`,
-      width: `${itemBounds.width}px`,
-    };
-    Object.assign(barRef.current.style, newStyle);
+    updateBarPosition(`${style.nav_item} ${style.active_child}`, barRef, false);
   };
 
   useEffect(() => {

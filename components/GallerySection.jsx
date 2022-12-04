@@ -1,8 +1,9 @@
 import style from "./styles/GallerySection.module.css";
 import GalleryItem from "./common/GalleryItem";
 import Image from "./common/Image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FullscreenPreview from "./common/FullscreenPreview";
+import { updateBarPosition } from "../lib/common";
 
 const ArtForms = ({ currentState, setCurrent, options }) => {
   return (
@@ -74,28 +75,10 @@ const GalleryNav = ({
   setCurrent,
   options,
 }) => {
-  const updateState = () => {
-    const activeItem = document.getElementsByClassName(
-      `${style.nav_item} ${style.nav_active_item}`
-    )[0];
-    if (activeItem === undefined) {
-      return;
-    }
-
-    const itemBounds = activeItem.getBoundingClientRect();
-    const headerBar = document.getElementsByClassName(style.nav_highlight)[0];
-
-    const newStyle = {
-      display: "block",
-      left: `${itemBounds.left}px`,
-      top: `${activeItem.offsetTop + itemBounds.height}px`,
-      width: `${itemBounds.width}px`,
-    };
-    Object.assign(headerBar.style, newStyle);
-  };
+  const barRef = useRef(null);
 
   useEffect(() => {
-    updateState();
+    updateBarPosition(`${style.nav_item} ${style.nav_active_item}`, barRef);
   }, [currentState, showAll]);
   return (
     <>
@@ -118,7 +101,7 @@ const GalleryNav = ({
           />
         ))}
       </ul>
-      <span className={style.nav_highlight} />
+      <span ref={barRef} className={style.nav_highlight} />
     </>
   );
 };

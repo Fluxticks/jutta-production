@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { updateBarPosition } from "../lib/common";
 import FullscreenPreview from "./common/FullscreenPreview";
 import ShopItem from "./common/ShopItem";
 import style from "./styles/ShopSection.module.css";
@@ -21,30 +22,10 @@ const ShopNav = ({
   setCurrent,
   options,
 }) => {
-  const updateState = () => {
-    const activeItem = document.getElementsByClassName(
-      `${style.nav_item} ${style.nav_active_item}`
-    )[0];
-    if (activeItem === undefined) {
-      return;
-    }
-
-    const itemBounds = activeItem.getBoundingClientRect();
-    const underlineBar = document.getElementsByClassName(
-      style.nav_highlight
-    )[0];
-
-    const updatedStyle = {
-      display: "block",
-      left: `${itemBounds.left}px`,
-      top: `${activeItem.offsetTop + itemBounds.height}px`,
-      width: `${itemBounds.width}px`,
-    };
-    Object.assign(underlineBar.style, updatedStyle);
-  };
+  const barRef = useRef(null);
 
   useEffect(() => {
-    updateState();
+    updateBarPosition(`${style.nav_item} ${style.nav_active_item}`, barRef);
   }, [currentState, showAll]);
 
   return (
@@ -68,7 +49,7 @@ const ShopNav = ({
           />
         ))}
       </ul>
-      <span className={style.nav_highlight} />
+      <span ref={barRef} className={style.nav_highlight} />
     </>
   );
 };
