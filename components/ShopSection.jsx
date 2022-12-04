@@ -24,8 +24,20 @@ const ShopNav = ({
 }) => {
   const barRef = useRef(null);
 
-  useEffect(() => {
+  const updateBar = () => {
     updateBarPosition(`${style.nav_item} ${style.nav_active_item}`, barRef);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateBar);
+    document.fonts.ready.then(updateBar);
+    return () => {
+      window.removeEventListener("resize", updateBar);
+    };
+  }, []);
+
+  useEffect(() => {
+    updateBar();
   }, [currentState, showAll]);
 
   return (
