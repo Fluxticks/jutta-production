@@ -48,6 +48,14 @@ const Nav = ({ children }) => {
   };
 
   useEffect(() => {
+    window.addEventListener("resize", updateBar);
+    document.fonts.ready.then(updateBar);
+    return () => {
+      window.removeEventListener("resize", updateBar);
+    };
+  }, []);
+
+  useEffect(() => {
     updateBar();
   }, [activeIndex]);
 
