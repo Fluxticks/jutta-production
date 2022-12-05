@@ -172,7 +172,8 @@ const ImageGallery = ({ items, filterBy, artForms }) => {
         </div>
       ) : (
         <div className={style.empty_list}>
-          No items currently available, try coming back later!
+          In dieser Kategorie sind momentan keine Artikel vorhanden - bitte
+          schau später nochmal rein!
         </div>
       )}
     </>

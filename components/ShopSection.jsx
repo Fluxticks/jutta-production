@@ -129,7 +129,8 @@ const ShopGallery = ({ items, filterBy, artForms }) => {
         </div>
       ) : (
         <div className={style.empty_list}>
-          No items currently available, try coming back later!
+          Momentan ist diese Kategorie in meinem kleinen Laden ausverkauft -
+          bitte schau später nochmal rein!
         </div>
       )}
     </>
