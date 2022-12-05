@@ -8,22 +8,28 @@
 
 .info_image {
   aspect-ratio: 3/4;
-  height: 400px;
+  max-width: min-content;
+  max-height: min-content;
+  min-width: 150px;
+  min-height: 200px;
   border-radius: 5px;
-  background-image: var(--img-src);
-  background-repeat: none;
-  background-size: cover;
-  @apply relative bg-custom-ash outline-custom-blue;
+  @apply relative;
 }
 
-.info_image::after {
+.image_overlay {
+  max-width: 400px;
+  max-height: 533px;
+  @apply relative flex;
+}
+
+.image_overlay::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.3;
+  opacity: 0.1;
   @apply bg-custom-cream;
 }
 
