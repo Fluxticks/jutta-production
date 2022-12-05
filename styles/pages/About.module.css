@@ -13,7 +13,7 @@
   min-width: 150px;
   min-height: 200px;
   border-radius: 5px;
-  @apply relative;
+  @apply relative bg-custom-ash;
 }
 
 .image_overlay {
