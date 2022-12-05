@@ -10,7 +10,7 @@
   aspect-ratio: 3/4;
   max-width: min-content;
   max-height: min-content;
-  min-width: 150px;
+  min-width: 250px;
   min-height: 200px;
   border-radius: 5px;
   @apply relative bg-custom-ash;
