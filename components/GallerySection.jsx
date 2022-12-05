@@ -5,6 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import FullscreenPreview from "./common/FullscreenPreview";
 import { updateBarPosition } from "../lib/common";
 
+const enableDebug =
+  process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES.toLowerCase() === "true";
+
 const ArtForms = ({ currentState, setCurrent, options }) => {
   return (
     <div className={style.artform_section}>
@@ -122,7 +125,7 @@ const ImageGallery = ({ items, filterBy, artForms }) => {
   const [previewIndex, setPreviewIndex] = useState(0);
 
   if (items === undefined || items.length === 0) {
-    if (process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES) {
+    if (enableDebug) {
       items = Array.from(Array(12), () => ({
         name: undefined,
         category: undefined,

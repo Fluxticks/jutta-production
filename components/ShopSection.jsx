@@ -4,6 +4,9 @@ import FullscreenPreview from "./common/FullscreenPreview";
 import ShopItem from "./common/ShopItem";
 import style from "./styles/ShopSection.module.css";
 
+const enableDebug =
+  process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES.toLowerCase() === "true";
+
 const NavItem = ({ name, isActive, clickHandler }) => {
   return (
     <li
@@ -70,7 +73,7 @@ const ShopGallery = ({ items, filterBy, artForms }) => {
   const [previewIndex, setPreviewIndex] = useState(0);
 
   if (items === undefined || items.length === 0) {
-    if (process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES) {
+    if (enableDebug) {
       items = Array.from(Array(12), () => ({
         name: undefined,
         category: undefined,
