@@ -6,9 +6,10 @@ const About = ({ text }) => {
   return (
     <div className={style.container}>
       <div className={style.info}>
-        <div className={style.image_overlay}>
-          <img src={text.portraitPath} className={style.info_image} />
-        </div>
+        <div
+          className={style.info_image}
+          style={{ "--img-src": `url(${text.portraitPath})` }}
+        />
         <div className={style.info_text}>
           <h1>{text.title}</h1>
           <div
