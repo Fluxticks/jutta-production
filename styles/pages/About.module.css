@@ -29,11 +29,11 @@
 }
 
 .description {
-  @apply flex flex-col justify-between;
+  @apply flex flex-col justify-between w-[60%];
 }
 
 .info_text {
-  @apply flex flex-col mb-5 w-[70%];
+  @apply flex flex-col mb-5;
 }
 
 .info_text > h1 {
@@ -49,5 +49,5 @@
 }
 
 .buttons {
-  @apply flex flex-row justify-center gap-5 bottom-10;
+  @apply flex flex-row justify-center gap-5;
 }
