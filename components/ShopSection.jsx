@@ -1,11 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import { updateBarPosition } from "../lib/common";
+import { useEffect, useState } from "react";
 import FullscreenPreview from "./common/FullscreenPreview";
 import ShopItem from "./common/ShopItem";
 import style from "./styles/ShopSection.module.css";
-
-const enableDebug =
-  process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES.toLowerCase() === "true";
 
 const NavItem = ({ name, isActive, clickHandler }) => {
   return (
@@ -25,22 +21,30 @@ const ShopNav = ({
   setCurrent,
   options,
 }) => {
-  const barRef = useRef(null);
+  const updateState = () => {
+    const activeItem = document.getElementsByClassName(
+      `${style.nav_item} ${style.nav_active_item}`
+    )[0];
+    if (activeItem === undefined) {
+      return;
+    }
 
-  const updateBar = () => {
-    updateBarPosition(`${style.nav_item} ${style.nav_active_item}`, barRef);
+    const itemBounds = activeItem.getBoundingClientRect();
+    const underlineBar = document.getElementsByClassName(
+      style.nav_highlight
+    )[0];
+
+    const updatedStyle = {
+      display: "block",
+      left: `${itemBounds.left}px`,
+      top: `${activeItem.offsetTop + itemBounds.height}px`,
+      width: `${itemBounds.width}px`,
+    };
+    Object.assign(underlineBar.style, updatedStyle);
   };
 
   useEffect(() => {
-    window.addEventListener("resize", updateBar);
-    document.fonts.ready.then(updateBar);
-    return () => {
-      window.removeEventListener("resize", updateBar);
-    };
-  }, []);
-
-  useEffect(() => {
-    updateBar();
+    updateState();
   }, [currentState, showAll]);
 
   return (
@@ -64,7 +68,7 @@ const ShopNav = ({
           />
         ))}
       </ul>
-      <span ref={barRef} className={style.nav_highlight} />
+      <span className={style.nav_highlight} />
     </>
   );
 };
@@ -73,7 +77,7 @@ const ShopGallery = ({ items, filterBy, artForms }) => {
   const [previewIndex, setPreviewIndex] = useState(0);
 
   if (items === undefined || items.length === 0) {
-    if (enableDebug) {
+    if (process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES) {
       items = Array.from(Array(12), () => ({
         name: undefined,
         category: undefined,
@@ -132,8 +136,7 @@ const ShopGallery = ({ items, filterBy, artForms }) => {
         </div>
       ) : (
         <div className={style.empty_list}>
-          Momentan ist diese Kategorie in meinem kleinen Laden ausverkauft -
-          bitte schau später nochmal rein!
+          No items currently available, try coming back later!
         </div>
       )}
     </>

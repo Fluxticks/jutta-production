@@ -8,8 +8,6 @@ import PopupBox from "./common/PopupBox";
 const DEFAULT_BUTTON_TEXT = "E-Mail senden";
 const BUTTON_COOLDOWN_TEXT = "Bitte warten...";
 
-const LOCAL_STORAGE_KEY = "user-form-data";
-
 const ContactForm = ({ text }) => {
   const formRef = useRef();
   const buttonRef = useRef();
@@ -66,7 +64,6 @@ const ContactForm = ({ text }) => {
       Array.from(formRef.current.elements).forEach((elem) => {
         elem.value = "";
       });
-      localStorage.removeItem(LOCAL_STORAGE_KEY);
       setPopupInfo({
         title: "E-Mail verschickt!",
         message: "Ihre E-Mail wurde versendet und wird zeitnah beantwortet!",
@@ -99,29 +96,10 @@ const ContactForm = ({ text }) => {
     }
   };
 
-  const updateLocalStorage = () => {
-    let formData = {};
-    for (let item of formRef.current.elements) {
-      formData[item.name] = item.value;
-    }
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(formData));
-  };
-
-  const retrieveLocalStorage = () => {
-    const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (raw) {
-      const data = JSON.parse(raw);
-      for (let item of formRef.current.elements) {
-        item.value = data[`${item.name}`];
-      }
-    }
-  };
-
   useEffect(() => {
     if (buttonRef.current !== undefined) {
       buttonRef.current.classList.remove(style.progress);
     }
-    retrieveLocalStorage();
   }, []);
 
   return (
@@ -136,11 +114,7 @@ const ContactForm = ({ text }) => {
           Kontaktiere mich!
         </h2>
         <div className={style.contact_container}>
-          <form
-            ref={formRef}
-            className={style.left}
-            onChange={updateLocalStorage}
-          >
+          <form ref={formRef} className={style.left}>
             <div className={style.input_item}>
               <label htmlFor="clientName">Name</label>
               <input
