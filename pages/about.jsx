@@ -5,10 +5,10 @@ import { loadAboutText } from "../lib/dataLoader";
 const About = ({ text }) => {
   return (
     <div className={style.container}>
-      <div className={style.info}>
-        <div className={style.image_overlay}>
-          <img src={text.portraitPath} className={style.info_image} />
-        </div>
+      <div className={style.image_overlay}>
+        <img className={style.info_image} src={text.portraitPath} />
+      </div>
+      <div className={style.description}>
         <div className={style.info_text}>
           <h1>{text.title}</h1>
           <div
@@ -18,10 +18,10 @@ const About = ({ text }) => {
             }}
           />
         </div>
-      </div>
-      <div className={style.buttons}>
-        <Button text="zur Galerie" href="/" />
-        <Button text="Kontaktiere mich" href="/shop#contact" />
+        <div className={style.buttons}>
+          <Button text="zur Galerie" href="/" />
+          <Button text="Kontaktiere mich" href="/shop#contact" />
+        </div>
       </div>
     </div>
   );
