@@ -1,8 +1,12 @@
 import style from "./styles/GallerySection.module.css";
 import GalleryItem from "./common/GalleryItem";
 import Image from "./common/Image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FullscreenPreview from "./common/FullscreenPreview";
+import { updateBarPosition } from "../lib/common";
+
+const enableDebug =
+  process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES.toLowerCase() === "true";
 
 const ArtForms = ({ currentState, setCurrent, options }) => {
   return (
@@ -74,28 +78,22 @@ const GalleryNav = ({
   setCurrent,
   options,
 }) => {
-  const updateState = () => {
-    const activeItem = document.getElementsByClassName(
-      `${style.nav_item} ${style.nav_active_item}`
-    )[0];
-    if (activeItem === undefined) {
-      return;
-    }
+  const barRef = useRef(null);
 
-    const itemBounds = activeItem.getBoundingClientRect();
-    const headerBar = document.getElementsByClassName(style.nav_highlight)[0];
-
-    const newStyle = {
-      display: "block",
-      left: `${itemBounds.left}px`,
-      top: `${activeItem.offsetTop + itemBounds.height}px`,
-      width: `${itemBounds.width}px`,
-    };
-    Object.assign(headerBar.style, newStyle);
+  const updateBar = () => {
+    updateBarPosition(`${style.nav_item} ${style.nav_active_item}`, barRef);
   };
 
   useEffect(() => {
-    updateState();
+    window.addEventListener("resize", updateBar);
+    document.fonts.ready.then(updateBar);
+    return () => {
+      window.removeEventListener("resize", updateBar);
+    };
+  }, []);
+
+  useEffect(() => {
+    updateBar();
   }, [currentState, showAll]);
   return (
     <>
@@ -118,7 +116,7 @@ const GalleryNav = ({
           />
         ))}
       </ul>
-      <span className={style.nav_highlight} />
+      <span ref={barRef} className={style.nav_highlight} />
     </>
   );
 };
@@ -127,7 +125,7 @@ const ImageGallery = ({ items, filterBy, artForms }) => {
   const [previewIndex, setPreviewIndex] = useState(0);
 
   if (items === undefined || items.length === 0) {
-    if (process.env.NEXT_PUBLIC_ENABLE_DEBUG_IMAGES) {
+    if (enableDebug) {
       items = Array.from(Array(12), () => ({
         name: undefined,
         category: undefined,
@@ -177,7 +175,8 @@ const ImageGallery = ({ items, filterBy, artForms }) => {
         </div>
       ) : (
         <div className={style.empty_list}>
-          No items currently available, try coming back later!
+          In dieser Kategorie sind momentan keine Artikel vorhanden - bitte
+          schau später nochmal rein!
         </div>
       )}
     </>

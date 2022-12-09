@@ -1,0 +1,7 @@
+
+User-agent: *
+Allow: /
+Allow: /shop
+Allow: /about
+
+Sitemap: https://www.meine-kleine-manufaktur.de/sitemap.xml

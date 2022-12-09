@@ -39,12 +39,7 @@ const PopupBox = ({ title, message, setVisible }) => {
       <div className={style.box_area}>
         <h1 className={style.title}>{title}</h1>
         <p className={style.message}>{message}</p>
-        <Button
-          text={"Close"}
-          onClick={() => {
-            setVisible(false);
-          }}
-        />
+        <Button text={"Close"} onClick={hidePopup} />
       </div>
       <div className={style.background} />
     </div>

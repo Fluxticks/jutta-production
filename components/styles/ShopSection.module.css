@@ -10,7 +10,7 @@
 }
 
 .nav_item {
-  @apply relative cursor-pointer text-xl font-medium;
+  @apply relative cursor-pointer text-xl font-medium text-custom-ash;
 }
 
 .nav_item::before {
@@ -18,7 +18,7 @@
   @apply absolute block top-0 left-[-2.5%] w-[110%] h-[125%];
 }
 .nav_active_item {
-  @apply relative;
+  @apply relative text-custom-grey;
 }
 
 .nav_highlight {
