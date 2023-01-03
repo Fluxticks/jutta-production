@@ -1,5 +1,5 @@
 .container {
-  @apply flex flex-col justify-center items-center gap-5 w-full pb-10;
+  @apply flex flex-col justify-center items-center gap-5 w-full py-10;
 }
 
 .contact_container {
@@ -16,6 +16,10 @@
 }
 
 @screen xl {
+  .container {
+    @apply pt-0;
+  }
+
   .contact_container {
     align-items: inherit;
     grid-template-columns: 1fr 1fr;
