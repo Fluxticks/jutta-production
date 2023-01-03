@@ -27,7 +27,7 @@
 @screen lg {
   .artform_images {
     width: auto;
-    @apply flex-row justify-center px-0;
+    @apply flex-row justify-center px-0 overflow-auto;
   }
 
   .artform_container > h2 {
