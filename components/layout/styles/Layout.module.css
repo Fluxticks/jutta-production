@@ -1,5 +1,5 @@
 .content_container {
-  @apply flex w-full justify-center mx-auto overflow-hidden;
+  @apply flex w-full justify-center mx-auto;
 }
 
 @screen lg {
