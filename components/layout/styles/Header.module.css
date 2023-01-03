@@ -1,5 +1,9 @@
 .header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  @apply flex flex-col gap-3;
+}
+
+@screen lg {
+  .header {
+    @apply flex-row justify-around gap-0;
+  }
 }
