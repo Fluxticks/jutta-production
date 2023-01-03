@@ -3,7 +3,7 @@
   list-style: none;
   width: fit-content;
   translate: 0 10%;
-  @apply flex gap-5 items-center justify-center py-5 px-0 mx-auto text-xl;
+  @apply flex gap-5 items-center justify-center px-0 mx-auto text-xl;
 }
 
 .nav_item {
@@ -11,7 +11,17 @@
 }
 
 .active_child {
-  @apply text-custom-grey;
+  @apply text-custom-grey relative;
+}
+
+.active_child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  border-radius: 1000px;
+  @apply bg-custom-coral text-custom-coral;
 }
 
 .active_highlight {
@@ -22,4 +32,18 @@
   transition: left 0.2s ease-in-out, top 0.2s ease-in-out,
     width 0.2s ease-in-out;
   @apply bg-custom-coral text-custom-coral;
+}
+
+@screen lg {
+  .container {
+    @apply py-5;
+  }
+
+  .active_highlight {
+    display: block;
+  }
+
+  .active_child::after {
+    display: none;
+  }
 }

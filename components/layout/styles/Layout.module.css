@@ -1,3 +1,9 @@
 .content_container {
-  @apply flex w-[85%] justify-center mx-auto;
+  @apply flex w-full justify-center mx-auto overflow-hidden;
+}
+
+@screen lg {
+  .content_container {
+    @apply w-[85%];
+  }
 }

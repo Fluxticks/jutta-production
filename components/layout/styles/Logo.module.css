@@ -1,13 +1,14 @@
 .container {
   width: fit-content;
-  @apply flex gap-5 items-center justify-center py-5 px-0 mx-auto;
+  @apply flex gap-5 items-center justify-center px-0 mx-auto pt-5;
 }
 
 .logo_background {
   border-radius: 100000px;
-  translate: -60% 35%;
   z-index: 1;
-  @apply absolute flex justify-center items-center w-32 h-32 overflow-hidden bg-custom-blue;
+  width: clamp(3rem, 2vw + 2.5rem, 8rem);
+  height: clamp(3rem, 2vw + 2.5rem, 8rem);
+  @apply relative flex justify-center items-center overflow-hidden bg-custom-blue;
 }
 
 .logo {
@@ -17,6 +18,31 @@
 
 .page_name {
   letter-spacing: 0.1rem;
-  translate: 60% 10%;
-  @apply text-5xl font-caveat font-semibold;
+  font-size: clamp(2rem, 2vw + 1rem, 3rem);
+  @apply font-caveat font-semibold;
+}
+
+@screen lg {
+  .container {
+    @apply pb-5;
+  }
+
+  .logo_background {
+    translate: -60% 35%;
+    width: clamp(7rem, 1.75vw + 3.75rem, 8rem);
+    height: clamp(7rem, 1.75vw + 3.75rem, 8rem);
+    @apply absolute;
+  }
+
+  .page_name {
+    translate: 60% 10%;
+    line-height: 2.25rem;
+    font-size: clamp(2.25rem, 1.75vw + 1.5rem, 3rem);
+  }
+}
+
+@screen xl {
+  .page_name {
+    line-height: 1;
+  }
 }
