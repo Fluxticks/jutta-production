@@ -11,7 +11,7 @@
 }
 
 .artform_container {
-  @apply flex flex-col items-center cursor-pointer;
+  @apply flex flex-col items-center cursor-pointer gap-1;
 }
 
 .artform_container > h2 {
@@ -20,7 +20,7 @@
 }
 
 .artform_container > h4 {
-  font-size: clamp(0.75rem, 1vw + 1rem, 1.5rem);
+  font-size: clamp(0.75rem, 1vw + 0.9rem, 1.5rem);
   @apply text-custom-grey pb-1;
 }
 
