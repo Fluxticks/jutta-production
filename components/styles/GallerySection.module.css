@@ -7,7 +7,7 @@
 }
 
 .artform_images {
-  @apply flex flex-row gap-10 justify-center relative;
+  @apply flex flex-row gap-10 relative w-screen overflow-x-scroll px-5;
 }
 
 .artform_container {
@@ -15,11 +15,28 @@
 }
 
 .artform_container > h2 {
-  @apply text-4xl font-bold text-custom-blue;
+  font-size: clamp(1.5rem, 2vw + 1.1rem, 2.25rem);
+  @apply font-bold text-custom-blue;
 }
 
 .artform_container > h4 {
-  @apply text-2xl text-custom-grey pb-1;
+  font-size: clamp(0.75rem, 1vw + 1rem, 1.5rem);
+  @apply text-custom-grey pb-1;
+}
+
+@screen lg {
+  .artform_images {
+    width: auto;
+    @apply flex-row justify-center px-0;
+  }
+
+  .artform_container > h2 {
+    @apply text-4xl;
+  }
+
+  .artform_container > h4 {
+    @apply text-2xl;
+  }
 }
 
 .artform_active_text {
@@ -79,7 +96,13 @@
 }
 
 .artform_info {
-  @apply flex flex-col gap-5 py-5 w-[75%] mx-auto;
+  @apply flex flex-col gap-5 py-5  mx-auto w-[90%];
+}
+
+@screen lg {
+  .artform_info {
+    @apply w-[75%];
+  }
 }
 
 .artform_info_title {
