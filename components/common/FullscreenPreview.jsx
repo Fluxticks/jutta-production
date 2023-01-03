@@ -94,10 +94,9 @@ const FullscreenPreview = ({
           </svg>
         </button>
         <div className={style.preview_image}>
-          <Image
-            size="650px"
-            imagePath={items[currentIndex].fullPath}
-            altText={`${items[currentIndex].name} large preview image`}
+          <img
+            src={items[currentIndex].fullPath}
+            alt={`${items[currentIndex].name} large preview image`}
           />
         </div>
         <button
