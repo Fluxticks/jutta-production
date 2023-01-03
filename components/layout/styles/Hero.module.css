@@ -3,25 +3,38 @@
   background-position-y: 18%;
   background-size: cover;
   width: 100%;
-  height: 550px;
+  height: 300px;
   z-index: 0;
   @apply flex flex-col relative py-5 px-0 bg-no-repeat justify-center items-center gap-5;
 }
 
 .container::before {
   content: "";
-  opacity: 60%;
+  opacity: 75%;
   z-index: -1;
   @apply absolute top-0 left-0 w-full h-full bg-custom-cream;
 }
 
 .title_text {
   z-index: 1;
-  @apply text-7xl text-custom-blue font-semibold font-caveat;
+  line-height: 1;
+  font-size: clamp(2.5rem, 2rem + 3.5vw, 4.5rem);
+  @apply text-custom-blue font-semibold font-caveat text-center;
 }
 
 .sub_text {
   z-index: 1;
-  max-width: clamp(10vw, 1.5rem + 30vm, 80vw);
-  @apply text-4xl text-center font-barlow;
+  line-height: 2.5rem;
+  font-size: clamp(1rem, 1rem + 1.5vw, 2.25rem);
+  @apply text-center font-barlow;
+}
+
+@screen sm {
+  .container {
+    height: 550px;
+  }
+
+  .container::before {
+    opacity: 60%;
+  }
 }
