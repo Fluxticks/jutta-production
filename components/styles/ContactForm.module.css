@@ -3,22 +3,38 @@
 }
 
 .contact_container {
-  grid-template-columns: 1fr 1fr;
-  @apply grid;
+  @apply flex flex-col gap-5 items-center;
 }
 
 .left {
-  border-right: 1px solid;
-  grid-row: 1;
-  grid-column: 1;
-  @apply border-custom-blue flex flex-col pr-5 gap-5 py-5 ml-auto w-fit;
+  max-width: 100vw;
+  @apply flex flex-col gap-5 overflow-x-scroll;
 }
 
 .right {
-  border-left: 1px solid;
-  grid-row: 1;
-  grid-column: 2;
-  @apply border-custom-blue flex flex-col pl-5 py-5 mr-auto w-fit;
+  @apply flex flex-col;
+}
+
+@screen xl {
+  .contact_container {
+    align-items: inherit;
+    grid-template-columns: 1fr 1fr;
+    @apply grid gap-0;
+  }
+
+  .left {
+    border-right: 1px solid;
+    grid-row: 1;
+    grid-column: 1;
+    @apply border-custom-blue pr-5 py-5 ml-auto w-fit h-full overflow-x-auto;
+  }
+
+  .right {
+    border-left: 1px solid;
+    grid-row: 1;
+    grid-column: 2;
+    @apply border-custom-blue pl-5 py-5 mr-auto w-fit h-full;
+  }
 }
 
 .input_item {
@@ -47,7 +63,13 @@
 }
 
 .contact_items {
-  @apply flex flex-col my-auto gap-5;
+  @apply flex flex-col my-auto gap-5 mx-auto w-fit items-center;
+}
+
+@screen xl {
+  .contact_items {
+    align-items: inherit;
+  }
 }
 
 .contact_description {
