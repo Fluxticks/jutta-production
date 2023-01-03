@@ -136,6 +136,30 @@ const ContactForm = ({ text }) => {
           Kontaktiere mich!
         </h2>
         <div className={style.contact_container}>
+          <div className={style.right}>
+            <div className={style.contact_items}>
+              {text !== undefined ? (
+                <div
+                  className={style.contact_description}
+                  dangerouslySetInnerHTML={{ __html: text }}
+                />
+              ) : (
+                <></>
+              )}
+              <div className={style.contact_info}>
+                <h1>Telefonnummer:</h1>
+                <a href="tel:+4917642489643">
+                  <h2>+49 176 424 89 643</h2>
+                </a>
+              </div>
+              <div className={style.contact_info}>
+                <h1>E-Mail:</h1>
+                <a href="mailto:jutta@meine-kleine-manufaktur.de">
+                  <h2>jutta@meine-kleine-manufaktur.de</h2>
+                </a>
+              </div>
+            </div>
+          </div>
           <form
             ref={formRef}
             className={style.left}
@@ -182,30 +206,6 @@ const ContactForm = ({ text }) => {
               </div>
             </div>
           </form>
-          <div className={style.right}>
-            <div className={style.contact_items}>
-              {text !== undefined ? (
-                <div
-                  className={style.contact_description}
-                  dangerouslySetInnerHTML={{ __html: text }}
-                />
-              ) : (
-                <></>
-              )}
-              <div className={style.contact_info}>
-                <h1>Telefonnummer:</h1>
-                <a href="tel:+4917642489643">
-                  <h2>+49 176 424 89 643</h2>
-                </a>
-              </div>
-              <div className={style.contact_info}>
-                <h1>E-Mail:</h1>
-                <a href="mailto:jutta@meine-kleine-manufaktur.de">
-                  <h2>jutta@meine-kleine-manufaktur.de</h2>
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </>

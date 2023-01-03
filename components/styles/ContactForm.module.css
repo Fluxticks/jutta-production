@@ -9,11 +9,15 @@
 
 .left {
   border-right: 1px solid;
+  grid-row: 1;
+  grid-column: 1;
   @apply border-custom-blue flex flex-col pr-5 gap-5 py-5 ml-auto w-fit;
 }
 
 .right {
   border-left: 1px solid;
+  grid-row: 1;
+  grid-column: 2;
   @apply border-custom-blue flex flex-col pl-5 py-5 mr-auto w-fit;
 }
 
