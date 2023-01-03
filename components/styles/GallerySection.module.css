@@ -182,8 +182,9 @@
 
 @screen lg {
   .nav_container {
-    position: initial;
+    position: inherit;
     width: auto;
+    backdrop-filter: none;
   }
 
   .nav_container::after {
