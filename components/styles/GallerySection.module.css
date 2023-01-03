@@ -224,7 +224,6 @@
 
   .image_grid {
     grid-template-columns: 1fr 1fr 1fr;
-    @apply grid gap-10 my-10 mx-auto;
   }
 }
 
