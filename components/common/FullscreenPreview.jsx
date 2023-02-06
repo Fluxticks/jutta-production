@@ -54,7 +54,7 @@ const FullscreenPreview = ({
     };
   }, []);
 
-  let subText = `${artForms[items[currentIndex].category].displayName} | ${
+  let subText = `${artForms[items[currentIndex]?.category]?.displayName} | ${
     items[currentIndex].dimensions
   }`;
 
