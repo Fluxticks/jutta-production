@@ -10,24 +10,16 @@ const GalleryItem = ({
 }) => {
   const [subtext, itemDimension] = getTextParts(`${category} | `, dimensions);
 
-  if (imagePath === undefined) {
-    return (
-      <ImageItem title={title} subtext={subtext}>
-        <h2>{itemDimension}</h2>
-      </ImageItem>
-    );
-  } else {
-    return (
-      <ImageItem
-        title={title}
-        subtext={subtext}
-        imagePath={imagePath}
-        onClick={onClick}
-      >
-        <h2>{itemDimension}</h2>
-      </ImageItem>
-    );
-  }
+  return (
+    <ImageItem
+      title={title}
+      subtext={subtext}
+      imagePath={imagePath}
+      onClick={onClick}
+    >
+      <h2>{itemDimension}</h2>
+    </ImageItem>
+  );
 };
 
 export default GalleryItem;
