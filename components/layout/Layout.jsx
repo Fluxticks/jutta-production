@@ -84,8 +84,20 @@ const Layout = ({ children }) => {
         <modal className={style.modal} id="shopModalBanner">
           <div className={style.modal_body}>
             <div className={style.modal_content}>
-              <p>Left</p>
-              <p>Right</p>
+              <h1>Extra Fein</h1>
+              <h2>im Veloon</h2>
+              <br />
+              <br />
+              <h3>Schönes & Nützliches</h3>
+              <h3>ausgewählt & handgemacht</h3>
+              <br />
+              <br />
+              <h4>
+                Besuchen Sie uns ab dem 1. März 2024 in der Oberen Hainstraße 2,
+                61440 Oberusel
+              </h4>
+              <br />
+              <img width="275px" height="275px" alt="Shop preview" />
             </div>
             <div className={style.close_button}>
               <Button
