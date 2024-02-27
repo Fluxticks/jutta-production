@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Hero from "./Hero";
 import style from "./styles/Layout.module.css";
+import Button from "../common/Button";
 
 const Layout = ({ children }) => {
   const routes = [
@@ -59,6 +60,10 @@ const Layout = ({ children }) => {
 
   const currentRoute = useRouter().asPath;
   const { headerText, subText, heroImage } = getCurrentPage(currentRoute);
+  const removeModalFromDOM = () => {
+    const modal = document.getElementById("shopModalBanner");
+    modal.parentNode.removeChild(modal);
+  };
 
   return (
     <>
@@ -75,14 +80,32 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/logo.svg" />
         <link rel="preload" href={heroImage} as="image" />
       </Head>
-      <header>
-        <Header routes={routes} />
-        <Hero titleText={headerText} subText={subText} bgImage={heroImage} />
-      </header>
-      <main className={style.content_container}>{children}</main>
-      <footer>
-        <Footer />
-      </footer>
+      <div className={style.body_container}>
+        <modal className={style.modal} id="shopModalBanner">
+          <div className={style.modal_body}>
+            <div className={style.modal_content}>
+              <p>Left</p>
+              <p>Right</p>
+            </div>
+            <div className={style.close_button}>
+              <Button
+                onClick={() => {
+                  removeModalFromDOM();
+                }}
+                text="Close"
+              />
+            </div>
+          </div>
+        </modal>
+        <header>
+          <Header routes={routes} />
+          <Hero titleText={headerText} subText={subText} bgImage={heroImage} />
+        </header>
+        <main className={style.content_container}>{children}</main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </>
   );
 };

@@ -2,6 +2,40 @@
   @apply flex w-full justify-center mx-auto;
 }
 
+.body_container {
+  @apply relative;
+}
+
+.modal {
+  background-color: rgba(60, 60, 60, 0.5);
+  @apply absolute w-full h-full z-10 flex justify-center;
+}
+
+.hidden_modal {
+  display: none;
+}
+
+.modal_body {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40vw;
+  height: min(50vh, 500px);
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  @apply fixed bg-custom-cream flex flex-col justify-between;
+}
+
+.close_button {
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+}
+
+.modal_content {
+  @apply flex flex-row;
+}
+
 @screen lg {
   .content_container {
     @apply w-[85%];
