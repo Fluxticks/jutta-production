@@ -9,7 +9,7 @@ const Footer = () => {
         <p className={style.tag_line}>...Freude teilen!</p>
       </div>
       <div className={style.advert}>
-        Website made by Benji Garment
+        Website made by Becky Garment
         <p>|</p>
         <Link href="https://github.com/Fluxticks">
           <a>GitHub / Contact Me</a>
