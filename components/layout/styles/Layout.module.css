@@ -2,6 +2,116 @@
   @apply flex w-full justify-center mx-auto;
 }
 
+.body_container {
+  @apply relative;
+}
+
+.modal {
+  background-color: rgba(60, 60, 60, 0.5);
+  @apply absolute w-full h-full z-10 flex justify-center;
+}
+
+.hidden_modal {
+  display: none;
+}
+
+.modal_body {
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1rem;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #a4c3b2;
+  @apply fixed flex flex-col;
+}
+
+.close_button {
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  @apply mx-auto;
+}
+
+.modal_content {
+  @apply flex flex-col my-auto;
+}
+
+.modal_content > h1 {
+  letter-spacing: 1rem;
+  @apply text-custom-coral text-5xl;
+}
+
+.modal_content > h2 {
+  letter-spacing: 0.5rem;
+  @apply text-4xl text-custom-powder;
+}
+
+.modal_content > h3 {
+  max-width: 75%;
+  letter-spacing: 0.4rem;
+  @apply text-2xl text-custom-grey;
+}
+
+.modal_content > h4 {
+  width: fit-content;
+  @apply text-2xl text-custom-cream;
+}
+
+.modal_content > h5 {
+  width: fit-content;
+  @apply text-3xl text-custom-cream mx-auto;
+}
+
+.modal_content > img {
+  position: absolute;
+  z-index: -1;
+  border-radius: 100000px;
+  background-image: var(--img);
+  background-size: cover;
+  display: none;
+  @apply bg-gray-600;
+}
+
+@screen sm {
+  .modal_content > h1 {
+    @apply text-8xl;
+  }
+
+  .modal_content > h2 {
+    @apply text-6xl;
+  }
+
+  .modal_content > h3 {
+    @apply text-4xl;
+  }
+
+  .modal_content > h4 {
+    @apply text-3xl;
+  }
+
+  .modal_content > h5 {
+    @apply text-5xl;
+  }
+
+  .modal_content > img {
+    display: block;
+    right: -75px;
+    top: 150px;
+  }
+}
+
+@screen lg {
+  .modal_body {
+    width: 40vw;
+  }
+
+  .modal_content > img {
+    display: block;
+    right: -50px;
+    top: 80px;
+  }
+}
+
 @screen lg {
   .content_container {
     @apply w-[85%];
