@@ -81,42 +81,6 @@ const Layout = ({ children }) => {
         <link rel="preload" href={heroImage} as="image" />
       </Head>
       <div className={style.body_container}>
-        <modal className={style.modal} id="shopModalBanner">
-          <div className={style.modal_body}>
-            <div className={style.modal_content}>
-              <h5>Ich bin jetzt auch vor Ort!</h5>
-              <br />
-              <h1>Extra Fein</h1>
-              <h2>im Veloon</h2>
-              <br />
-              <br />
-              <h3>7 Künstlerinnen eine Vision</h3>
-              <br />
-              <br />
-              <h4>Ab März 2024,</h4>
-              <h4>
-                in der Veloon Lounge in der Oberen Hainstrasse 2, 61440
-                Oberursel
-              </h4>
-              <br />
-              <img
-                width="300px"
-                height="300px"
-                style={{
-                  "--img": "url(/modalImage.webp)",
-                }}
-              />
-            </div>
-            <div className={style.close_button}>
-              <Button
-                onClick={() => {
-                  removeModalFromDOM();
-                }}
-                text="Close"
-              />
-            </div>
-          </div>
-        </modal>
         <header>
           <Header routes={routes} />
           <Hero titleText={headerText} subText={subText} bgImage={heroImage} />
