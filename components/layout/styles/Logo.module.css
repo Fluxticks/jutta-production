@@ -13,7 +13,7 @@
 
 .logo {
   mask: url("../../../public/logo.svg") center no-repeat;
-  @apply w-[80%] h-[80%] bg-custom-cream;
+  @apply w-full h-full bg-custom-cream;
 }
 
 .page_name {
@@ -28,7 +28,7 @@
   }
 
   .logo_background {
-    translate: -60% 35%;
+    translate: -50% 15%;
     width: clamp(7rem, 1.75vw + 3.75rem, 8rem);
     height: clamp(7rem, 1.75vw + 3.75rem, 8rem);
     @apply absolute;

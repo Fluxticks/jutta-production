@@ -33,7 +33,7 @@ const ContactForm = ({ text }) => {
       if (currentCooldown > 0) {
         setButtonText(
           BUTTON_COOLDOWN_TEXT.replace("...", " ") +
-            `(${Math.trunc(currentCooldown / 1000)}s)`
+          `(${Math.trunc(currentCooldown / 1000)}s)`
         );
         currentCooldown -= 1000;
       } else {
@@ -154,8 +154,8 @@ const ContactForm = ({ text }) => {
               </div>
               <div className={style.contact_info}>
                 <h1>E-Mail:</h1>
-                <a href="mailto:jutta@meine-kleine-manufaktur.de">
-                  <h2>jutta@meine-kleine-manufaktur.de</h2>
+                <a href="mailto:jutta@freuwerke.de">
+                  <h2>jutta@freuwerke.de</h2>
                 </a>
               </div>
             </div>
