@@ -1,5 +1,5 @@
 .container {
-  background-image: var(--bg-url), url("https://via.placeholder.com/1920");
+  background-image: var(--bg-url), url("https://placehold.co/1920");
   background-position-y: 18%;
   background-size: cover;
   width: 100%;
