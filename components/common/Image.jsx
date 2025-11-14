@@ -14,7 +14,7 @@ const Image = ({
   }
   const imageRef = useRef(null);
   const onErrorHandle = () => {
-    imageRef.current.src = `https://via.placeholder.com/${size.replace(
+    imageRef.current.src = `https://placehold.co/${size.replace(
       "px",
       ""
     )}`;
