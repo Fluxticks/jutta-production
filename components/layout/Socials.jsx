@@ -43,7 +43,7 @@ const Socials = () => {
           </Link>
         </li>
         <li className={style.nav_item}>
-          <Link href="https://instagram.com/Juttas_manufaktur">
+          <Link href="https://instagram.com/freuwerke">
             <a aria-label="Instagram">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
